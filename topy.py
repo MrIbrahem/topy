@@ -93,7 +93,7 @@ def fix_text(old_text):
     # ---
     for key in errs:
         if key in newtext:
-            printe.output(f"<<red>> found key: {key} in newtext")
+            print(f"<<red>> found key: {key} in newtext")
             err_file = Dir / "err.txt"
             err_file.write_text(newtext, encoding="utf-8")
             return old_text, ""

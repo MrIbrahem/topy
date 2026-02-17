@@ -10,6 +10,8 @@ from API import printe
 from typos.topy import fix_text  # text, sum = fix_text(text)
 import gent
 
+import logging
+logger = logging.getLogger(__name__)
 
 def work_page(x):
     page = MainPage(x, "ar", family="wikipedia")
@@ -23,24 +25,23 @@ def work_page(x):
     if not page_edit:
         return
     # ---
-    printe.output(f"fix_text, page:[[{x}]]")
+    logger.info(f"fix_text, page:[[{x}]]")
     # ---
     new_text, sumn = fix_text(text)
     # ---
     if new_text == text:
-        printe.output(f"No changes in {x}")
+        logger.info(f"No changes in {x}")
         return
     # ---
     page.save(newtext=new_text, summary=f"بوت: المستبدلات: {{{sumn}}}")
 
 
 def main3():
-    printe.output("<<lightred>> main3.")
+    logger.info("<<lightred>> main3.")
     # ---
-    generator = gent.get_gent()
+    generator = gent.get_gent(listonly=True)
     # ---
-    for page in generator:
-        title = page.title(as_link=False)
+    for title in generator:
         work_page(title)
 
 
