@@ -39,7 +39,7 @@ def work_page(x):
 def main3():
     logger.info("<<lightred>> main3.")
     # ---
-    generator = gent.get_gent(listonly=True)
+    generator = gent.get_gent_list()
     # ---
     for title in generator:
         work_page(title)
