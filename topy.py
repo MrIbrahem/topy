@@ -7,7 +7,6 @@ from typos.topy import fix_text  # text, sum = fix_text(text)
 # import wikitextparser as wtp
 import regex
 from bs4 import BeautifulSoup
-from newapi import printe
 from typos.typos_text import typos_text_def  # typo_text = typos_text_def()
 
 from typos.chaa import change_text, un_change_text
